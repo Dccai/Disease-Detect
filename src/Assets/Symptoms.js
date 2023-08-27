@@ -39,7 +39,7 @@ export const Symptoms=[
 'Back Pain',
 'Constipation',
 'Abdominal Pain',
-'Diarrhoea',
+'Diarrhea',
 'Mild Fever',
 'Yellow Urine',
 'Yellowing Of Eyes',

@@ -19,7 +19,7 @@
   grid-column: 3/5;
 }
 .headPages:hover{
-  animation: headPageChange 1s ease-in 0s 1 forwards;
+  animation: headPageChange 0.6s ease-in 0s 1 forwards;
   position: relative;
 }
 #heart{
@@ -83,7 +83,7 @@ height:70px;
 display: block;
 }
 .headLink:hover{
-  animation: headColorChange 0.6s ease-in-out 0s 1  forwards;
+  animation: headColorChange 0.4s ease-in-out 0s 1  forwards;
   }
 #logo{
   width: 100%;

@@ -9,10 +9,8 @@
     grid-column: 1/5;
     margin-left: auto;
     margin-right: auto;
-    font-family: 'Untitled Sans';
-    font-size: 60px;
-    font-weight: 200;
-
+    background-image: url(https://wallpaperaccess.com/full/740143.jpg);
+    filter:blur(5px) brightness(50%);
 }
 #Main{
     display: grid;
@@ -24,7 +22,7 @@
 #predict{
     width: 70%;
     height: 300px;
-    background-color: rgb(37, 209, 177);
+    background-color:#48D1CC;
     margin-top: 20px;
     border-radius: 20px;
     grid-row: 2/3;
@@ -37,11 +35,21 @@
     padding: 12px 12px;
     
 }
-
+#statementText{
+    position: absolute;
+    font-family: 'Untitled Sans';
+    font-size: 58px;
+    font-weight: 400;
+    width:80%;
+    left: 10%;
+    top:150px;
+    color: rgb(25, 99, 226);
+    -webkit-text-stroke: 1px rgb(186, 181, 181);
+}
 #diseaseCatalog{
     width: 70%;
     height: 300px;
-    background-color: rgb(37, 209, 46);
+    background-color: #00FF40;
     margin-top: 20px;
     border-radius: 20px;
     grid-row: 2/3;

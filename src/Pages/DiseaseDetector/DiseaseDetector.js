@@ -22,7 +22,7 @@ export function DiseaseDetector(){
     if (symptoms.length!==numbOfSymptoms){
         return (
             <div id="questionairePage">
-                <h1 id="questionH1"> The Symptom: {Symptoms[symptoms.length]}</h1>
+                <h1 id="questionH1"> Do You Have This Symptom? <br/> <h2 id="questionh2">{Symptoms[symptoms.length]}</h2></h1>
                 <button className='diseaseButton Yes' onClick={()=>{addSymptoms(a=>[...a,1])}}>Yes</button>
                 <button className='diseaseButton No'  onClick={()=>{addSymptoms(a=>[...a,0])}}>No</button>
                 <h4 id="yourProgress">Your Progress</h4>
@@ -47,7 +47,7 @@ export function DiseaseDetector(){
             <div>
                 <h1 id="resultTitle"><span id="resultTitleHead">The Results Are:</span> <br/><br/> {informationToGive[0]}</h1>
                 <h3 id="caution">Caution:</h3>
-                <h5 id="warning">The Results Are Not To Be Taken As Fact And Should Only Be Used To Help Identify A Potential Problem</h5>
+                <h5 id="warning">The Results Are Not To Be Taken As Fact And Should Only Be Used To Help Identify A Potential Problem. Consult A Doctor If You Feel The Need For Further Action.</h5>
             </div>
         )
     }
