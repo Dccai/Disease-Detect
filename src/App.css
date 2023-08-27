@@ -2,37 +2,115 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#head{
+  width: 100%;
+  height:100px;
+  background-color: #f0f0f0;
+  top:0px;
+  opacity: 0.8;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  position: absolute;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.headPages{
+  height: 100px;
+  background-color: #f0f0f0;
+  text-align: center;
+  grid-column: 3/5;
+}
+.headPages:hover{
+  animation: headPageChange 1s ease-in 0s 1 forwards;
+  position: relative;
+}
+#heart{
+  height: 46px;
+  width: 46px;
+  background:#f20044;
+  position: relative;
+  transform: rotate(-45deg);
+  box-shadow: -10px 10px 90px #f20044;
+  margin-left: 600px;
+  margin-top: -80px;
+  animation: heart 1s linear infinite;
+}
+#heart::before{
+  content: '';
+  position: absolute;
+  height: 46px;
+  width: 46px;
+  background:#f20044;
+  top:-50%;
+  left:0%;
+  border-radius: 50px;
+}
+#heart::after{
+  content: '';
+  position: absolute;
+  height: 46px;
+  width: 46px;
+  background:#f20044;
+  right:-50%;
+  border-radius: 50px;
+}
+@keyframes headPageChange{
+  0%{
+    background-color: #f0f0f0;
+    
+  }
+  50%,100%{
+    background-color: rgb(170, 168, 168);
+    
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes headColorChange{
+  0%{
+    color: grey;
   }
-  to {
-    transform: rotate(360deg);
+  50%{
+    color: red;
+    }
+  100%{
+    color: red;
+  }
+}
+.headLink{
+color: black;
+text-decoration: none;
+text-align: center;
+padding-top:30px ;
+font-size: 20px;
+height:70px;
+display: block;
+}
+.headLink:hover{
+  animation: headColorChange 0.6s ease-in-out 0s 1  forwards;
+  }
+#logo{
+  width: 100%;
+  height: 80px;
+  position: relative;
+  grid-column: 1/3;
+}
+#head-replace{
+  width: 100%;
+  height:100px;
+  background-color: #f0f0f0;
+}
+#logoTitle{
+  margin-left: -100px;
+  margin-top: 12px;
+  font-family:SpaceGrotesk-Light;
+  font-weight: 100;
+  font-size: 55px;
+}
+@keyframes heart{
+  0%{
+    transform: rotate(-45deg) scale(1.07);
+  }
+  80%{
+    transform: rotate(-45deg) scale(1.0);
+  }
+  100%{
+    transform: rotate(-45deg) scale(0.8);
   }
 }

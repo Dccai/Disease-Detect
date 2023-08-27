@@ -1,0 +1,76 @@
+
+#websiteStatement{
+    width: 80%;
+    height: 300px;
+    background-color: rgb(40, 88, 176);
+    margin-top: 20px;
+    border-radius: 20px;
+    grid-row: 1/2;
+    grid-column: 1/5;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Untitled Sans';
+    font-size: 60px;
+    font-weight: 200;
+
+}
+#Main{
+    display: grid;
+    grid-template-rows: repeat(4,400px);
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+    height: 600px;
+}
+#predict{
+    width: 70%;
+    height: 300px;
+    background-color: rgb(37, 209, 177);
+    margin-top: 20px;
+    border-radius: 20px;
+    grid-row: 2/3;
+    grid-column: 1/3;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Untitled Sans';
+    font-size: 20px;
+    font-weight: 200;
+    padding: 12px 12px;
+    
+}
+
+#diseaseCatalog{
+    width: 70%;
+    height: 300px;
+    background-color: rgb(37, 209, 46);
+    margin-top: 20px;
+    border-radius: 20px;
+    grid-row: 2/3;
+    grid-column: 3/5;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Untitled Sans';
+    font-size: 20px;
+    font-weight: 200;
+    padding: 12px 12px;
+    
+}
+.diagnosButton{
+    --background-color: rgb(35, 35, 194);
+    --background-color-dark:blue;
+    display: inline-block;
+    margin: 0px 8px;
+    padding: 10px 16px;
+    font-family: 'Boogaloo',cursive;
+    font-size:24px;
+    color: white;
+    text-decoration: none;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    background-color: var(--background-color);
+    box-shadow: 6px 6px 10px var(--background-color-dark);
+}
+.diagnosButton:active{
+    transform: translateX(2px) translateY(2px);
+    box-shadow: 4px 4px 10px var(--background-color-dark);
+}

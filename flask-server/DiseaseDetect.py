@@ -1,0 +1,192 @@
+import pandas as pd
+import numpy as np
+import tensorflow as tf
+from sklearn.preprocessing import StandardScaler
+from keras.utils import to_categorical
+import matplotlib.pyplot as plt
+df=pd.read_csv(r'C:\Users\USER\Downloads\archive (1)\Training.csv')
+test=pd.read_csv(r'C:\Users\USER\Downloads\archive (1)\Testing.csv')
+diseases=set(df['prognosis'])
+diseases=list(map(lambda x: x,diseases))
+diseases.sort()
+df.dropna(axis=1,inplace=True)
+test.dropna(axis=1,inplace=True)
+def handle_non_numeric_data(df):
+    text_digit_values={}
+    def convert_to_int(val):
+        return text_digit_values[val]
+    unique_elements=diseases
+    x=0
+    for unique in unique_elements:
+        if unique not in text_digit_values:
+            text_digit_values[unique]=x
+            x+=1
+    df['prognosis']=list(map(convert_to_int,df['prognosis']))
+    return df
+df=handle_non_numeric_data(df)
+test=handle_non_numeric_data(test)
+X=np.array(df.drop(['prognosis'],axis=1))
+y=np.array(df['prognosis'])
+test_x=np.array(test.drop(['prognosis'],axis=1))
+scaler=StandardScaler()
+test_y=np.array(test['prognosis'])
+#X=scaler.fit_transform(X)
+#test_x=scaler.fit_transform(test_x)
+y_train_onehot=to_categorical(y,num_classes=len(diseases))
+y_test_onehot=to_categorical(test_y,num_classes=len(diseases))
+model=tf.keras.Sequential(
+    [
+        tf.keras.layers.Dense(132,activation=tf.keras.activations.relu),
+        tf.keras.layers.Dense(256,activation=tf.keras.activations.relu),
+        tf.keras.layers.Dense(256,activation=tf.keras.activations.relu),
+        tf.keras.layers.Dense(256,activation=tf.keras.activations.relu),
+        tf.keras.layers.Dense(256,activation=tf.keras.activations.relu),
+        tf.keras.layers.Dense(len(diseases),activation=tf.keras.activations.softmax)
+    ]
+)
+model.compile(
+    loss=tf.keras.losses.categorical_crossentropy,optimizer=tf.keras.optimizers.Adam(learning_rate=0.0001,epsilon=1e-8),metrics=['accuracy']
+)
+history=model.fit(X,y_train_onehot,epochs=10000)
+prediction=np.argmax(model.predict(test_x),axis=-1)
+print(np.mean(test_y==prediction))
+newX=np.array([[
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+]])
+
+print(newX)
+print(X)
+newPredict=np.argmax(model.predict(newX),axis=-1)
+print(diseases[newPredict[0]])
+#model.save("diseasedetect.keras")
