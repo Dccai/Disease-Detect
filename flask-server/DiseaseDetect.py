@@ -47,7 +47,7 @@ model=tf.keras.Sequential(
 model.compile(
     loss=tf.keras.losses.categorical_crossentropy,optimizer=tf.keras.optimizers.Adam(learning_rate=0.0001,epsilon=1e-8),metrics=['accuracy']
 )
-history=model.fit(X,y_train_onehot,epochs=10000)
+history=model.fit(X,y_train_onehot,epochs=1000)
 prediction=np.argmax(model.predict(test_x),axis=-1)
 print(np.mean(test_y==prediction))
 newX=np.array([[
