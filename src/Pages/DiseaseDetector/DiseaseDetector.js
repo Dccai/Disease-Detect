@@ -47,7 +47,7 @@ export function DiseaseDetector(){
             <div>
                 <h1 id="resultTitle"><span id="resultTitleHead">The Results Are:</span> <br/><br/> {informationToGive[0]}</h1>
                 <h3 id="caution">Caution:</h3>
-                <h5 id="warning">The Results Are Not To Be Taken As Fact And Should Only Be Used To Help Identify A Potential Problem. Consult A Doctor If You Feel The Need For Further Action.</h5>
+                <h5 id="warning">The Results Are Not To Be Taken As Absolute Fact And Should Only Be Used To Help Identify A Potential Problem. Consult A Doctor If You Feel The Need For Further Action.</h5>
             </div>
         )
     }
