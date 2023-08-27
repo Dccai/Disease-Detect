@@ -8,7 +8,6 @@ export function DiseaseDetector(){
     async function handleSubmit(e){
         e.preventDefault();
         let objec={data:symptoms};
-        console.log(symptoms)
         await fetch('/diseaseDetector',{method:"POST",headers:{'Content-Type':'application/json'},body:JSON.stringify(objec)}).then(
             response=>response.json()
         ).then(a=>{
